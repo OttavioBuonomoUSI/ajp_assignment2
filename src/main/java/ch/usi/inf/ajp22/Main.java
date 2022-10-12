@@ -109,4 +109,34 @@ public class Main {
         firstAirplane.moveToPassengers(secondAirplane.getPassengers());
 
     }
+
+    /**
+     *
+     * Create a public static void function called "transformPeople".
+     *       input: a List from which People are read, called "src";
+     *              a List in which People are inserted, called "dst".
+     *       This function iterates over all the elements of "src" and copies them in the "dst" List.
+     *       If the element in "src" starts with the "z" or "Z" character then in the "dst" list is
+     *       added a Wizard instead of a person. The Wizard's age must be 100 times the person's age.
+     *
+     *       Remember to use the get-put principle properly.
+     */
+    private static void transformPeople(List<? extends People> src, List<? super People> dst) {
+        for (People p : src) {
+            if (p.getName().startsWith("z") || p.getName().startsWith("Z")) {
+                Wizard w = new Wizard(p.getName(), p.getAge() * 100);
+                dst.add(w);
+            } else {
+                dst.add(p);
+            }
+        }
+    }
+
+    // input: a List of objects that implement the Flyable interface.
+    // This function calls the method "fly" of every object inside the list.
+    public static void callFlyMethod(List<Flyable> flyableList) {
+        for (Flyable flyable : flyableList) {
+            flyable.fly();
+        }
+    }
 }

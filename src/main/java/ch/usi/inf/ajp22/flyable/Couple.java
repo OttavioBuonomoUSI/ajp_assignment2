@@ -7,19 +7,19 @@ package ch.usi.inf.ajp22.flyable;
  *       flyable can be any type that implements the Flyable interface.
  *       This may lead in changing the  type of the fields passenger and flyable.
  */
-public class Couple {
+public class Couple<T extends People, U extends Flyable> {
 
-    private final Object passenger;
-    private final Object flyable;
+    private final T passenger;
+    private final U flyable;
 
-    public Couple(Object passenger, Object flyable) {
+    public Couple(T passenger, U flyable) {
         this.passenger = passenger;
         this.flyable = flyable;
     }
 
     @Override
     public String toString() {
-        return String.format("Passenger :%s On :%s", ((People)this.passenger).getName(),
+        return String.format("Passenger :%s On :%s", (this.passenger).getName(),
                 this.flyable.getClass().getSimpleName());
     }
 }

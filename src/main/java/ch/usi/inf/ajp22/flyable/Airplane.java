@@ -1,6 +1,7 @@
 package ch.usi.inf.ajp22.flyable;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -16,9 +17,9 @@ import java.util.List;
  *
  *          Remember to use the get-put principle properly.
  */
-public class Airplane implements Flyable{
+public class Airplane<T extends People> implements Flyable{
 
-    private final List passengers;
+    private final List<T> passengers;
 
     @Override
     public int getSpeed() {
@@ -35,12 +36,17 @@ public class Airplane implements Flyable{
         this.passengers = new ArrayList<>();
     }
 
-    public void setPassengers(List list) {
+    public void setPassengers(List<? extends T> list) {
         passengers.addAll(list);
     }
 
-    public List getPassengers() {
+    public List<? extends T> getPassengers() {
         return this.passengers;
+    }
+
+    public void moveToPassengers(List<? super People> dst) {
+        dst.addAll(passengers);
+        passengers.clear();
     }
 
 }
