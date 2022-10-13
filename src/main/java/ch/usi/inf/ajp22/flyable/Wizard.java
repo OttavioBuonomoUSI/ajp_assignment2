@@ -19,7 +19,7 @@ public class Wizard extends People implements Flyable, Comparable<Flyable> {
 
     @Override
     public void fly() {
-
+        System.out.println("I'm flying");
     }
 
     @Override
@@ -29,6 +29,6 @@ public class Wizard extends People implements Flyable, Comparable<Flyable> {
 
     @Override
     public int compareTo(Flyable o) {
-        return 0;
+        return (int) Math.signum(this.getSpeed() - o.getSpeed());
     }
 }

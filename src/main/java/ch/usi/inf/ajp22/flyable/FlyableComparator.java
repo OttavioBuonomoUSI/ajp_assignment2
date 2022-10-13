@@ -10,6 +10,6 @@ import java.util.Comparator;
 public class FlyableComparator implements Comparator<Flyable> {
     @Override
     public int compare(Flyable o1, Flyable o2) {
-        return o1.getSpeed() - o2.getSpeed();
+        return (int) Math.signum(o1.getSpeed() - o2.getSpeed());
     }
 }

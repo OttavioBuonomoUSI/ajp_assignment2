@@ -40,11 +40,11 @@ public class Airplane<T extends People> implements Flyable{
         passengers.addAll(list);
     }
 
-    public List<? extends T> getPassengers() {
+    public List<T> getPassengers() {
         return this.passengers;
     }
 
-    public void moveToPassengers(List<? super People> dst) {
+    public void moveToPassengers(List<? super T> dst) {
         dst.addAll(passengers);
         passengers.clear();
     }
