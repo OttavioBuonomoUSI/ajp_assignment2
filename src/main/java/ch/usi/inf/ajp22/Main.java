@@ -124,8 +124,7 @@ public class Main {
     private static void transformPeople(List<? extends People> src, List<? super People> dst) {
         for (People p : src) {
             if (p.getName().startsWith("z") || p.getName().startsWith("Z")) {
-                Wizard w = new Wizard(p.getName(), p.getAge() * 100);
-                dst.add(w);
+                dst.add(new Wizard(p.getName(), p.getAge() * 100));
             } else {
                 dst.add(p);
             }
@@ -134,7 +133,7 @@ public class Main {
 
     // input: a List of objects that implement the Flyable interface.
     // This function calls the method "fly" of every object inside the list.
-    public static void callFlyMethod(List<Flyable> flyableList) {
+    public static void callFlyMethod(List<? extends Flyable> flyableList) {
         for (Flyable flyable : flyableList) {
             flyable.fly();
         }

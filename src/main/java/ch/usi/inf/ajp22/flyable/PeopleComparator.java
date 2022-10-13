@@ -11,8 +11,8 @@ public class PeopleComparator<T extends People> implements Comparator<T> {
     @Override
     public int compare(T o1, T o2) {
         if (o1.getAge() == o2.getAge()) {
-            return o1.getName().length() - o2.getName().length();
+            return (int) Math.signum(o1.getName().length() - o2.getName().length());
         }
-        return o1.getAge() - o2.getAge();
+        return (int) Math.signum(o1.getAge() - o2.getAge());
     }
 }
